@@ -1,0 +1,6 @@
+package: go-rest-gin-k8s
+import:
+- package: github.com/lib/pq
+  version: ~1.3.0
+- package: github.com/gin-gonic/gin
+  version: ~1.5.0
