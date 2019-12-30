@@ -1,0 +1,20 @@
+# curl --request GET
+#  --url http://localhost:8080/board
+GET http://localhost:8080/board
+###
+# curl --request POST
+#  --url http://localhost:8080/board
+#  --header 'content-type: application/json'
+#  --data '{
+#	"author": "Niels Baltodano 3",
+#	"content": "Hola Mundo 3"
+#}'
+POST http://localhost:8080/board
+Content-Type: application/json
+
+{
+  "author": "Niels Baltodano 4",
+  "content": "Hola Mundo 4"
+}
+
+###
