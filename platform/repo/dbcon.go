@@ -1,9 +1,10 @@
 package repo
 
 import (
-	"fmt"
 	"database/sql"
-	)
+	"fmt"
+	_ "github.com/lib/pq"
+)
 
 func GetConexion() (*sql.DB, error) {
 	var err error
@@ -11,7 +12,7 @@ func GetConexion() (*sql.DB, error) {
 	dbInfo := fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=disable", DbHost, DbUser, DbPassword, DbName)
 	db, err = sql.Open("postgres", dbInfo)
 	if err != nil {
-		return nil,err
+		return nil, err
 	}
-	return db,nil
+	return db, nil
 }

@@ -8,7 +8,7 @@ import (
 
 func GetBulletins() ([]bulletin.Bulletin, error) {
 	const q = `SELECT author, content, created_at FROM bulletins ORDER BY created_at DESC LIMIT 100`
-	db, _ :=GetConexion()
+	db, _ := GetConexion()
 	rows, err := db.Query(q)
 	if err != nil {
 		return nil, err
@@ -29,13 +29,13 @@ func GetBulletins() ([]bulletin.Bulletin, error) {
 }
 func AddBulletin(b bulletin.Bulletin) error {
 	const q = `INSERT INTO bulletins(author, content, created_at) VALUES ($1, $2, $3)`
-	db, _ :=GetConexion()
+	db, _ := GetConexion()
 	_, err := db.Exec(q, b.Author, b.Content, b.CreatedAt)
 	return err
 }
-func Migrations ()  {
+func Migrations() {
 	var err error
-	db, err :=GetConexion()
+	db, err := GetConexion()
 	//db, err = sql.Open("postgres", dbInfo)
 
 	if err != nil {
@@ -47,7 +47,8 @@ func Migrations ()  {
 	_, err = db.Query(Migration)
 	if err != nil {
 		log.Println("Failed run Migrations", err.Error())
+		panic(err)
 		return
 	}
-	log.Println("·running....")
+	log.Println("Running Migrations....")
 }

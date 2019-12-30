@@ -13,8 +13,8 @@ POST http://localhost:8080/board
 Content-Type: application/json
 
 {
-  "author": "Niels Baltodano 4",
-  "content": "Hola Mundo 4"
+  "author": "Niels Baltodano 2",
+  "content": "Hola Mundo 2"
 }
 
 ###
