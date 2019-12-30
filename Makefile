@@ -10,3 +10,5 @@ docker: docker-down docker-build
 docker-down:
 	docker-compose down
 	docker rmi -f niels58/go-rest-gin-k8s:v1 || true
+docker-push: docker-build
+	docker-compose push

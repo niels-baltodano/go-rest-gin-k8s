@@ -20,15 +20,21 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: DockerCompose@0
-      displayName: 'docker-compose build'
-      inputs:
-        containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'docker-hub-personal'
-        dockerComposeCommand: build
-    - task: DockerCompose@0
-      displayName: 'docker-compose push'
-      inputs:
-        containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'docker-hub-personal'
-        dockerComposeCommand: push
+      - task: CMake@1
+        displayName: 'Make Push'
+        inputs:
+          containerregistrytype: 'Container Registry'
+          dockerRegistryEndpoint: 'docker-hub-personal'
+          cmakeArgs: 'docker-push'
+#    - task: DockerCompose@0
+#      displayName: 'docker-compose build'
+#      inputs:
+#        containerregistrytype: 'Container Registry'
+#        dockerRegistryEndpoint: 'docker-hub-personal'
+#        dockerComposeCommand: build
+#    - task: DockerCompose@0
+#      displayName: 'docker-compose push'
+#      inputs:
+#        containerregistrytype: 'Container Registry'
+#        dockerRegistryEndpoint: 'docker-hub-personal'
+#        dockerComposeCommand: push
