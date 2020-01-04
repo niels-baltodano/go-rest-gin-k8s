@@ -1,7 +1,7 @@
 dev:
 	go run main.go
 docker-build:
-	docker-compose pull || true
+#	docker-compose pull || true
 	docker-compose build || true
 docker: docker-down docker-build
 	docker-compose up -d
